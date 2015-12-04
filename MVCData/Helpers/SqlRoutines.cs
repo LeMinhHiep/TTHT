@@ -103,7 +103,7 @@ namespace MVCData.Helpers
 
             queryString = queryString + "                       INSERT INTO WarehouseBalancePrice (WarehouseBalanceDate, HotelID, ServiceID, UnitPrice) " + "\r\n";
 
-            queryString = queryString + "                       SELECT      @WarehouseBalanceDateEveryMonth, WarehouseBalancePrice.HotelID, WarehouseBalancePrice.ServiceID, WarehouseBalancePrice.UnitPrice" + "\r\n";
+            queryString = queryString + "                       SELECT      @WarehouseBalanceDateEveryMonth, WarehouseBalancePrice.HotelID, WarehouseBalancePrice.ServiceID, WarehouseBalanceDetail.AmountCost/ WarehouseBalanceDetail.Quantity " + "\r\n";
             queryString = queryString + "                       FROM        WarehouseBalancePrice INNER JOIN" + "\r\n";
             queryString = queryString + "                                   WarehouseBalanceDetail ON WarehouseBalancePrice.WarehouseBalanceDate = @WarehouseBalanceDateMAX AND WarehouseBalancePrice.WarehouseBalanceDate = WarehouseBalanceDetail.WarehouseBalanceDate AND WarehouseBalancePrice.HotelID = WarehouseBalanceDetail.HotelID AND WarehouseBalancePrice.ServiceID = WarehouseBalanceDetail.ServiceID " + "\r\n";
             queryString = queryString + "                   END " + "\r\n";
