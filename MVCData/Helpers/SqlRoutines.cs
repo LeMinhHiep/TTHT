@@ -45,8 +45,8 @@ namespace MVCData.Helpers
             queryString = queryString + "           ServiceID int NOT NULL ," + "\r\n";
             queryString = queryString + "           HotelID int NOT NULL ," + "\r\n";
             queryString = queryString + "           WarehouseBalanceDate datetime NOT NULL ," + "\r\n";
-            queryString = queryString + "           Quantity decimal(18, 2) NOT NULL ," + "\r\n";
-            queryString = queryString + "           AmountCost decimal(18, 2) NOT NULL ," + "\r\n";
+            queryString = queryString + "           Quantity float NOT NULL ," + "\r\n";
+            queryString = queryString + "           AmountCost float NOT NULL ," + "\r\n";
             queryString = queryString + "           Remarks nvarchar (100))" + "\r\n";
 
             queryString = queryString + "       IF @PurchaseInvoiceID > 0 " + "\r\n";
@@ -142,8 +142,8 @@ namespace MVCData.Helpers
             #region Update Warehouse balance average price + ending amount
 
             queryString = queryString + "       DECLARE     @LastDayOfPreviousMonth DateTime" + "\r\n";
-            queryString = queryString + "       DECLARE     @WarehouseInputCollection TABLE (HotelID int NOT NULL, ServiceID int NOT NULL, Quantity decimal(18, 2) NOT NULL, PurchaseInvoiceQuantity decimal(18, 2) NOT NULL, AmountCost decimal(18, 2) NOT NULL, UnitPrice decimal(18, 2) NOT NULL) " + "\r\n";
-            queryString = queryString + "       DECLARE     @WarehouseInputAveragePrice TABLE (HotelID int NOT NULL, ServiceID int NOT NULL, UnitPrice decimal(18, 2) NOT NULL) " + "\r\n";
+            queryString = queryString + "       DECLARE     @WarehouseInputCollection TABLE (HotelID int NOT NULL, ServiceID int NOT NULL, Quantity float NOT NULL, PurchaseInvoiceQuantity float NOT NULL, AmountCost float NOT NULL, UnitPrice float NOT NULL) " + "\r\n";
+            queryString = queryString + "       DECLARE     @WarehouseInputAveragePrice TABLE (HotelID int NOT NULL, ServiceID int NOT NULL, UnitPrice float NOT NULL) " + "\r\n";
 
             queryString = queryString + "       SET         @WarehouseBalanceDateEveryMonth = dbo.EOMONTHTIME(@WarehouseBalanceDate, 9999)" + "\r\n";//--FIND THE FIRST @WarehouseBalanceDateEveryMonth WHICH IS GREATER OR EQUAL TO @WarehouseBalanceDate
 
